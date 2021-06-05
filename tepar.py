@@ -1,5 +1,14 @@
 import numpy as np
 
+print("---------   .--------   .-------.   .-------.   .-------.")
+print("    |       |           |       |   |       |   |       |")
+print("    |       |--------   |-------'   |-------|   |-.-----'")
+print("    |       |           |           |       |   |  '.    ")
+print("    |       '--------   |           |       |   |     '. ")
+print("")
+print("Selamat Datang Di Tepar")
+print("")
+
 parking_gate_in = {'x':18867, 'y':17360}
 Spot1 = {'name':'Park_A', 'x':17464, 'y':14687}
 Spot2 = {'name':'Park_B', 'x':18131, 'y':14687}
@@ -83,30 +92,52 @@ def printMenu(key, jarak1, jarak2, jarak3, jarak4, percentage):
         print("Persentase favorit : {:.2f}".format(percentage) + "%")
         print("")
 
-print(Log_A)
-print(Log_B)
-print(Log_C)
-print(Log_D)
-print(Log_E)
-print(Log_F)
-print(Log_G)
-print(Log_H)
-print(Log_I)
-print(Log_J)
-print(Log_K)
-print(Log_L)
-print(Log_M)
-print(Log_N)
-print(Log_O)
-print(Log_P)
+def printMenu1(key, jarak1, jarak4, percentage):
+        print("Parkiran " + key)
+        print("Jarak ke lobi 1 : {:.2f}".format(jarak1))
+        print("Jarak berkendara : {:.2f}".format(jarak4))
+        print("Persentase favorit : {:.2f}".format(percentage) + "%")
+        print("")
+
+def printMenu2(key, jarak2, jarak4, percentage):
+        print("Parkiran " + key)
+        print("Jarak ke lobi 2 : {:.2f}".format(jarak2))
+        print("Jarak berkendara : {:.2f}".format(jarak4))
+        print("Persentase favorit : {:.2f}".format(percentage) + "%")
+        print("")
+
+def printMenu3(key, jarak3, jarak4, percentage):
+        print("Parkiran " + key)
+        print("Jarak ke lobi 3 : {:.2f}".format(jarak3))
+        print("Jarak berkendara : {:.2f}".format(jarak4))
+        print("Persentase favorit : {:.2f}".format(percentage) + "%")
+        print("")
+
+# print(Log_A)
+# print(Log_B)
+# print(Log_C)
+# print(Log_D)
+# print(Log_E)
+# print(Log_F)
+# print(Log_G)
+# print(Log_H)
+# print(Log_I)
+# print(Log_J)
+# print(Log_K)
+# print(Log_L)
+# print(Log_M)
+# print(Log_N)
+# print(Log_O)
+# print(Log_P)
 
 def takeSpot():
 
     percent_prudent = User1["prudent"]/(User1["prudent"] + User1["meek"])
     percent_meek = 1 - percent_prudent
 
-    print("total prudent : " + str(User1["prudent"]))
-    print("total meek : " + str(User1["meek"]))
+    print("Detail User ")
+    print("   Total prudent    : " + str(User1["prudent"]))
+    print("   Total meek       : " + str(User1["meek"]))
 
     jarak_kaki_min_prudent = 99999999999
     nama_spot_prudent = ""
@@ -151,26 +182,26 @@ def takeSpot():
 
     if(percent_prudent >= percent_meek):
       typeUser = "prudent"
-      print("Rekomendasi prudent : ")
-      print(jarak_kaki_min_prudent)
-      print(nama_spot_prudent)
+      print("Rekomendasi Prudent ")
+      print("   Jarak Jalan Kaki : {:.2f}".format(jarak_kaki_min_prudent))
+      print("   Nama Lokasi      : " + nama_spot_prudent)
 
-      print("SPOT YANG MEEK")
-      print(jarak_kaki_min_meek)
-      print(nama_spot_meek)
+      # print("SPOT YANG MEEK")
+      # print(jarak_kaki_min_meek)
+      # print(nama_spot_meek)
     else:
       typeUser = "meek"
-      print("Rekomendasi meek : ")
-      print(jarak_kaki_min_meek)
-      print(nama_spot_meek)
+      print("Rekomendasi Meek ")
+      print("   Jarak Total : {:.2f}".format(jarak_kaki_min_meek))
+      print("   Nama Lokasi : " + nama_spot_meek)
 
-      print("SPOT YANG PRUDENT")
-      print(jarak_kaki_min_prudent)
-      print(nama_spot_prudent)
-
+      # print("SPOT YANG PRUDENT")
+      # print(jarak_kaki_min_prudent)
+      # print(nama_spot_prudent)
 
 
     choice2 = input("Apakah kamu ingin mengambil rekomendasi parkiran ini : (y/n)")
+    print("")
     if (choice2 == "y"):
       #tambah ke logy
       for j in Log_Parkiran:
@@ -219,6 +250,14 @@ def takeSpot():
           if(j['status'] == "free" and j['name'] == "Log_" + i):
 
             # print("No. " + str(iteration + 1))
+
+            # if(int.j['jarak_ke_Lobi_1'] < int.j['jarak_ke_Lobi_2'] & int.j['jarak_ke_Lobi_1'] < int.j['jarak_ke_Lobi_3']):
+            #     printMenu1(i, j['jarak_ke_Lobi_1'], j['jarak_mobil_parkir'], (urutan[i] * 100))
+            # elif(int.j['jarak_ke_Lobi_2'] < int.j['jarak_ke_Lobi_1'] & int.j['jarak_ke_Lobi_2'] < int.j['jarak_ke_Lobi_3']):
+            #     printMenu2(i, j['jarak_ke_Lobi_2'], j['jarak_mobil_parkir'], (urutan[i] * 100))
+            # elif(int.j['jarak_ke_Lobi_3'] < int.j['jarak_ke_Lobi_2'] & int.j['jarak_ke_Lobi_3'] < int.j['jarak_ke_Lobi_2']):
+            #     printMenu3(i, j['jarak_ke_Lobi_3'], j['jarak_mobil_parkir'], (urutan[i] * 100))
+
             printMenu(i, j['jarak_ke_Lobi_1'],j['jarak_ke_Lobi_2'], j['jarak_ke_Lobi_3'], j['jarak_mobil_parkir'], (urutan[i] * 100))
             iteration += 1
 
@@ -227,10 +266,7 @@ def takeSpot():
         choice3_check = False
 
       while choice3_check == False:
-        print("")
         choice3 = input("Ketik nama parkiran yang ingin kamu ambil (contoh -> Log_B) : ")
-
-
 
         for i in Log_Parkiran:
           #dicek kalau namanya sama
@@ -252,15 +288,17 @@ def takeSpot():
                   i['jumlah_dipilih'] += 1
               else:
                 print("Parkiran penuh")
-
       # Output table LOG
-        for i in Log_Parkiran:
-            print(i)
+      #   for i in Log_Parkiran:
+      #       print(i)
+
+      print("")
 
 abc = False
 while abc == False:
     parkirq = input("Apakah anda sedang mencari parkiran? (y/n)")
     if (parkirq == "y"):
+        print("")
         takeSpot()
     if (parkirq == "n"):
         abc = True
